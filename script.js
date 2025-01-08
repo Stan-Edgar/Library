@@ -31,7 +31,11 @@ function addBookToLibrary(title, author, pages, read) {
 
 
 
-
+let books = document.querySelectorAll(".card").forEach(card => function() {
+    for (const [key, value] of Object.entries(myLibrary[0])) {
+        info.innerHTML += `${key} : ${value} <br><br>`;
+      }
+})
 
 
 // New Book
@@ -50,15 +54,13 @@ btn.addEventListener('click', function addBook() {
     let wrapper = document.querySelector(".wrapper");
 
     //Creating cards
-    let card = document.createElement("div");
-    card.className = "card";
+    const card = document.createElement("div");
     
     wrapper.appendChild(card);
 
-    let info = document.querySelector('.card');
 
     for (const [key, value] of Object.entries(myLibrary[0])) {
-        info.innerHTML += `${key} : ${value} <br><br>`;
+        card.innerHTML += `${key} : ${value} <br><br>`;
       }
 
     myLibrary.slice(0, myLibrary.length);
