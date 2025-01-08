@@ -1,0 +1,40 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Poppins;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 600px;
+}
+
+.wrapper, .card {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 10px;
+}
+
+.card {
+
+    width: 300px;
+    height: 300px;
+    border: 0;
+    border-radius: 50px;
+    -webkit-box-shadow: -4px 9px 15px 5px rgba(0,0,0,0.18); 
+    box-shadow: -4px 9px 15px 5px rgba(0,0,0,0.18);;
+}
+
+.btn {
+    display: flex;
+    width: 200px;
+    height: 60px;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    background-color: violet;
+}
