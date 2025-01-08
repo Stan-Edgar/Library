@@ -31,16 +31,10 @@ function addBookToLibrary(title, author, pages, read) {
 
 
 
-let books = document.querySelectorAll(".card").forEach(card => function() {
-    for (const [key, value] of Object.entries(myLibrary[0])) {
-        info.innerHTML += `${key} : ${value} <br><br>`;
-      }
-})
-
-
 // New Book
 
 let btn = document.querySelector(".btn");
+
 
 btn.addEventListener('click', function addBook() {
 
@@ -55,15 +49,37 @@ btn.addEventListener('click', function addBook() {
 
     //Creating cards
     const card = document.createElement("div");
+    //Creating Buttons
+    const button = document.createElement("button");
+    button.textContent = "Read";
+    button.style.cssText = "display: flex; width: 70px; font-size: 10px; height: 30px; align-items: center; border-radius: 5px; border: 0; align-items: center; justify-content: center; background-color: black; color: white; font-weight: 800; cursor: pointer;"
     
-    wrapper.appendChild(card);
 
+
+    wrapper.appendChild(card);
+    card.appendChild(button);
+    
 
     for (const [key, value] of Object.entries(myLibrary[0])) {
-        card.innerHTML += `${key} : ${value} <br><br>`;
+        const textElement = document.createElement("p");
+        textElement.innerText = `${key}: ${value}`;
+        card.appendChild(textElement);
       }
 
-    myLibrary.slice(0, myLibrary.length);
+      
+    myLibrary.splice(0, myLibrary.length);
+    if (myLibrary.length > 1) {
+        alert("Error");
+    }
     
 
+    //Delete Cards
+    button.addEventListener("click" , function () {
+        alert("Read!");
+    })
+   
+
 });
+
+
+
