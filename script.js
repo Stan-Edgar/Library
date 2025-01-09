@@ -10,12 +10,15 @@ function addBookToLibrary(title, author, pages, read) {
         title: title, 
         author: author, 
         pages: pages,
-        read: read};
+        // read: read
+        };
 
     this.title = title;
     this.author = author;
     this.pages = pages;
-    this.read = read;
+    //this.read = read;
+
+    
 
     let have = "";
     if (!read) {
@@ -41,7 +44,7 @@ btn.addEventListener('click', function addBook() {
     let title = prompt("Title : ");
     let author = prompt("Author : ");
     let pages = Number(prompt("Pages: "));
-    let read = Boolean(prompt("Read :"));
+    let read = "";
 
     addBookToLibrary(title, author, pages, read);
 
@@ -50,21 +53,31 @@ btn.addEventListener('click', function addBook() {
     //Creating cards
     const card = document.createElement("div");
     //Creating Buttons
+    const del = document.createElement('button');
+    del.textContent = "Remove";
+    del.style.cssText = "display: flex; width: 70px; font-size: 10px; height: 30px; align-items: center; border-radius: 5px; border: 0; align-items: center; justify-content: center; background-color: black; color: white; font-weight: 800; cursor: pointer;"
     const button = document.createElement("button");
     button.textContent = "Read";
     button.style.cssText = "display: flex; width: 70px; font-size: 10px; height: 30px; align-items: center; border-radius: 5px; border: 0; align-items: center; justify-content: center; background-color: black; color: white; font-weight: 800; cursor: pointer;"
     
-
+    // Creating button container
+    const container = document.createElement('div');
+    container.style.cssText = "Display: flex; column-gap: 10px; border: 0; -webkit-box-shadow: 0;";
 
     wrapper.appendChild(card);
-    card.appendChild(button);
-    
+
 
     for (const [key, value] of Object.entries(myLibrary[0])) {
         const textElement = document.createElement("p");
         textElement.innerText = `${key}: ${value}`;
         card.appendChild(textElement);
+
       }
+
+    card.appendChild(container);
+    //Adding buttons
+    container.appendChild(button);
+    container.appendChild(del);
 
       
     myLibrary.splice(0, myLibrary.length);
@@ -74,8 +87,25 @@ btn.addEventListener('click', function addBook() {
     
 
     //Delete Cards
+
+    del.addEventListener('click', function() {
+        card.remove();
+    })
+
+    // Read Cards
+
     button.addEventListener("click" , function () {
+
         alert("Read!");
+        let readP = document.createElement("p")
+        readP.innerText = "Read";
+        readP.style.cssText = "padding: 5px; color: white; border-radius: 50px; font-size: 1.1rem; background-color: green;"
+        card.appendChild(readP);
+        card.style.cssText = "border: 2px solid green;"
+
+        // removes itself
+        button.remove();
+        
     })
    
 

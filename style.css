@@ -19,9 +19,9 @@ body {
     margin: 10px;
 }
 
-.wrapper div {
+.wrapper > div {
     flex-direction: column;
-    row-gap: 30px;
+    row-gap: 20px;
     width: 300px;
     height: 300px;
     border: 0;
